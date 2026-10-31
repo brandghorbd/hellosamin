@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samin | Content Creator, Graphic Designer & Video Editor</title>
+  <meta name="description" content="Portfolio of Samin: content creator, graphic designer, video editor and AI expert." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================
+       Samin | Portfolio styles
+       ========================================================== */
+    :root {
+      --bg: #0b0b10;
+      --surface: #15151d;
+      --surface-2: #1d1d28;
+      --border: #2a2a38;
+      --text: #f4f4f8;
+      --muted: #9d9db0;
+      --accent: #ff5c8a;
+      --accent-2: #7c5cff;
+      --radius: 16px;
+      --max: 1120px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    h1, h2, h3 {
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      line-height: 1.15;
+    }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    section { padding: 96px 0; }
+
+    .section-head { text-align: center; margin-bottom: 56px; }
+    .section-head h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
+    .section-head p { color: var(--muted); max-width: 560px; margin: 14px auto 0; }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* ---------- Navbar ---------- */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(11, 11, 16, 0.7);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.4rem; }
+    .logo span { color: var(--accent); }
+
+    .nav nav { display: flex; gap: 28px; align-items: center; }
+    .nav nav a { color: var(--muted); font-size: 0.95rem; transition: color 0.2s; }
+    .nav nav a:hover { color: var(--text); }
+    .nav nav a.btn-small {
+      padding: 8px 16px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      color: var(--text);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      box-shadow: 0 10px 30px -10px rgba(255, 92, 138, 0.6);
+    }
+
+    .btn-ghost { border: 1px solid var(--border); color: var(--text); }
+    .btn-ghost:hover { border-color: var(--accent-2); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      padding-top: 120px;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.35;
+      z-index: -1;
+    }
+    .hero::before { background: var(--accent); top: -120px; right: -120px; }
+    .hero::after { background: var(--accent-2); bottom: -160px; left: -120px; }
+
+    .hero h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); margin-bottom: 16px; }
+
+    .role {
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .lead {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 1.08rem;
+      margin-bottom: 36px;
+    }
+
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .stats {
+      list-style: none;
+      display: flex;
+      gap: 48px;
+      margin-top: 64px;
+      flex-wrap: wrap;
+    }
+    .stats strong {
+      display: block;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 2rem;
+    }
+    .stats span { color: var(--muted); font-size: 0.9rem; }
+
+    /* ---------- About ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .avatar {
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius);
+      background: linear-gradient(160deg, var(--surface-2), var(--surface));
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .about-title { font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin-bottom: 20px; }
+    .text { color: var(--muted); margin-bottom: 16px; }
+
+    .highlights { list-style: none; margin-top: 24px; display: grid; gap: 12px; }
+    .highlights li { padding-left: 28px; position: relative; }
+    .highlights li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+
+    /* ---------- Services ---------- */
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .card:hover { transform: translateY(-6px); border-color: var(--accent-2); }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--surface-2);
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .card h3 { font-size: 1.25rem; margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: 0.95rem; }
+
+    /* ---------- Work / Portfolio ---------- */
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .filter {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 10px 20px;
+      border-radius: 999px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.9rem;
+      transition: color 0.2s, background 0.2s, border-color 0.2s;
+    }
+    .filter:hover { color: var(--text); }
+    .filter.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .project {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .project:hover { transform: translateY(-6px); border-color: var(--accent-2); }
+    .project.hidden { display: none; }
+
+    .thumb {
+      aspect-ratio: 16 / 10;
+      display: grid;
+      place-items: center;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .thumb-1 { background: linear-gradient(135deg, #ff5c8a, #7c5cff); }
+    .thumb-2 { background: linear-gradient(135deg, #f7b733, #fc4a1a); }
+    .thumb-3 { background: linear-gradient(135deg, #00c6ff, #0072ff); }
+    .thumb-4 { background: linear-gradient(135deg, #11998e, #38ef7d); }
+    .thumb-5 { background: linear-gradient(135deg, #232526, #414345); }
+    .thumb-6 { background: linear-gradient(135deg, #f953c6, #b91d73); }
+
+    .project-body { padding: 22px; }
+    .project-body h3 { font-size: 1.15rem; margin-bottom: 8px; }
+    .project-body p { color: var(--muted); font-size: 0.92rem; margin-bottom: 14px; }
+
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tags span {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    /* ---------- Skills ---------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+    .skill-group h3 { font-size: 1.2rem; margin-bottom: 22px; }
+
+    .bar { margin-bottom: 18px; }
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.92rem;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+    .bar-track {
+      height: 8px;
+      background: var(--surface-2);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      width: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 1.2s ease;
+    }
+    .skills-grid.in .bar-fill { width: var(--w); }
+
+    .tools span { font-size: 0.85rem; padding: 8px 14px; }
+
+    /* ---------- Contact ---------- */
+    .contact { text-align: center; }
+    .contact h2 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 16px; }
+    .contact .lead { margin-left: auto; margin-right: auto; }
+
+    .contact-links {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* ---------- Scroll reveal ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 980px) {
+      .work-grid { grid-template-columns: repeat(2, 1fr); }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 720px) {
+      .menu-toggle { display: block; }
+
+      .nav nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--bg);
+        padding: 24px;
+        gap: 18px;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav.open nav { display: flex; }
+
+      .about-grid,
+      .skills-grid,
+      .work-grid,
+      .grid-4 { grid-template-columns: 1fr; }
+
+      .stats { gap: 28px; }
+      section { padding: 72px 0; }
+    }
+
+    /* ---------- Reduced motion ---------- */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="nav">
+    <a href="#home" class="logo">Samin<span>.</span></a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact" class="btn-small">Contact</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <p class="eyebrow">Available for freelance &amp; collaborations</p>
+        <h1>Hi, I'm <span class="gradient-text">Samin</span>.</h1>
+        <p class="role">Content Creator &middot; Graphic Designer &middot; Video Editor &middot; AI Expert</p>
+        <p class="lead">
+          I help brands and creators tell better stories through scroll-stopping content,
+          bold visual design, cinematic video edits, and practical AI-powered workflows.
+        </p>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary">View my work</a>
+          <a href="#contact" class="btn btn-ghost">Let's talk</a>
+        </div>
+        <ul class="stats">
+          <li><strong>4</strong><span>Creative disciplines</span></li>
+          <li><strong>50+</strong><span>Projects delivered</span></li>
+          <li><strong>AI</strong><span>Powered workflows</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about">
+      <div class="container about-grid reveal">
+        <div class="avatar">
+          <!-- Replace this div with your photo, e.g.:
+               <img src="photo.jpg" alt="Samin" style="width:100%;height:100%;object-fit:cover;border-radius:16px" /> -->
+          <span>SAMIN</span>
+        </div>
+        <div>
+          <p class="eyebrow">About me</p>
+          <h2 class="about-title">A creator who thinks in frames, layouts and systems.</h2>
+          <p class="text">
+            I'm a multidisciplinary creative. I plan and script content, design the visuals that
+            support it, edit the video that brings it to life, and use AI tools to speed up
+            research, production and repetitive work without losing the human touch.
+          </p>
+          <p class="text">
+            Whether it's a short-form reel, a brand identity, a YouTube edit or an AI automation,
+            my goal is the same: clear messages, strong visuals and content people actually want to watch or share.
+          </p>
+          <ul class="highlights">
+            <li>Short-form &amp; long-form content strategy</li>
+            <li>Brand identity, social graphics &amp; print design</li>
+            <li>Motion-ready video editing &amp; color grading</li>
+            <li>AI tools, prompt design &amp; workflow automation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">What I do</p>
+          <h2>Services</h2>
+          <p>Four disciplines, one consistent creative vision.</p>
+        </div>
+        <div class="grid-4">
+          <article class="card reveal">
+            <div class="icon">&#9998;</div>
+            <h3>Content Creation</h3>
+            <p>Ideation, scripting, and content calendars for YouTube, Instagram, TikTok and Facebook.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon">&#127912;</div>
+            <h3>Graphic Design</h3>
+            <p>Logos, brand identities, social media graphics, posters, thumbnails and print materials.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon">&#127916;</div>
+            <h3>Video Editing</h3>
+            <p>Reels, shorts, vlogs, ads and YouTube edits with motion graphics, captions and color grading.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon">&#129302;</div>
+            <h3>AI Expert</h3>
+            <p>AI content tools, chatbots, prompt engineering and automation that saves your team time.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section id="work">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Selected work</p>
+          <h2>Portfolio</h2>
+          <p>A mix of design, video, content and AI projects.</p>
+        </div>
+
+        <div class="filters reveal" role="group" aria-label="Filter projects">
+          <button class="filter active" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter" data-filter="content" aria-pressed="false">Content</button>
+          <button class="filter" data-filter="design" aria-pressed="false">Design</button>
+          <button class="filter" data-filter="video" aria-pressed="false">Video</button>
+          <button class="filter" data-filter="ai" aria-pressed="false">AI</button>
+        </div>
+
+        <div class="work-grid">
+          <article class="project reveal" data-category="design">
+            <div class="thumb thumb-1">Brand Kit</div>
+            <div class="project-body">
+              <h3>Brand Identity System</h3>
+              <p>Logo, color palette, typography and social templates for a growing startup.</p>
+              <div class="tags"><span>Logo</span><span>Branding</span><span>Figma</span></div>
+            </div>
+          </article>
+
+          <article class="project reveal" data-category="video">
+            <div class="thumb thumb-2">Reels</div>
+            <div class="project-body">
+              <h3>Short-Form Video Series</h3>
+              <p>Fast-paced reels with kinetic captions, sound design and hook-first editing.</p>
+              <div class="tags"><span>Reels</span><span>Captions</span><span>Premiere Pro</span></div>
+            </div>
+          </article>
+
+          <article class="project reveal" data-category="video">
+            <div class="thumb thumb-3">Travel Vlog</div>
+            <div class="project-body">
+              <h3>Cinematic Travel Vlog</h3>
+              <p>Long-form YouTube edit with color grading, b-roll structure and narrative pacing.</p>
+              <div class="tags"><span>YouTube</span><span>Color Grading</span><span>DaVinci Resolve</span></div>
+            </div>
+          </article>
+
+          <article class="project reveal" data-category="content">
+            <div class="thumb thumb-4">Content Plan</div>
+            <div class="project-body">
+              <h3>Social Media Content Calendar</h3>
+              <p>Monthly planning, scripting and posting strategy across three platforms.</p>
+              <div class="tags"><span>Strategy</span><span>Scripting</span><span>Analytics</span></div>
+            </div>
+          </article>
+
+          <article class="project reveal" data-category="ai">
+            <div class="thumb thumb-5">AI Bot</div>
+            <div class="project-body">
+              <h3>AI Customer Support Assistant</h3>
+              <p>Chatbot trained on business FAQs to answer customer questions around the clock.</p>
+              <div class="tags"><span>LLM</span><span>Prompting</span><span>Automation</span></div>
+            </div>
+          </article>
+
+          <article class="project reveal" data-category="design">
+            <div class="thumb thumb-6">Ad Campaign</div>
+            <div class="project-body">
+              <h3>Product Ad Campaign</h3>
+              <p>Poster and social ad designs for a product launch, built for multiple formats.</p>
+              <div class="tags"><span>Ads</span><span>Poster</span><span>Photoshop</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Expertise</p>
+          <h2>Skills &amp; Tools</h2>
+          <p>The software and skills I use every day.</p>
+        </div>
+
+        <div class="skills-grid reveal">
+          <div class="skill-group">
+            <h3>Core Skills</h3>
+            <div class="bar"><div class="bar-label"><span>Video Editing</span><span>90%</span></div><div class="bar-track"><div class="bar-fill" style="--w:90%"></div></div></div>
+            <div class="bar"><div class="bar-label"><span>Graphic Design</span><span>88%</span></div><div class="bar-track"><div class="bar-fill" style="--w:88%"></div></div></div>
+            <div class="bar"><div class="bar-label"><span>Content Creation</span><span>92%</span></div><div class="bar-track"><div class="bar-fill" style="--w:92%"></div></div></div>
+            <div class="bar"><div class="bar-label"><span>AI &amp; Automation</span><span>85%</span></div><div class="bar-track"><div class="bar-fill" style="--w:85%"></div></div></div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Tools</h3>
+            <div class="tags tools">
+              <span>Adobe Photoshop</span>
+              <span>Illustrator</span>
+              <span>Figma</span>
+              <span>Premiere Pro</span>
+              <span>After Effects</span>
+              <span>DaVinci Resolve</span>
+              <span>CapCut</span>
+              <span>Canva</span>
+              <span>ChatGPT</span>
+              <span>Claude</span>
+              <span>Midjourney</span>
+              <span>Python</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="contact">
+      <div class="container reveal">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Let's create something <span class="gradient-text">great</span> together.</h2>
+        <p class="lead">Open for freelance projects, collaborations and creative partnerships.</p>
+        <div class="contact-links">
+          <a href="mailto:samin@example.com" class="btn btn-primary">Email me</a>
+          <a href="#" class="btn btn-ghost" target="_blank" rel="noopener">Instagram</a>
+          <a href="#" class="btn btn-ghost" target="_blank" rel="noopener">YouTube</a>
+          <a href="#" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/" class="btn btn-ghost" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Samin. Built with HTML, CSS &amp; a lot of coffee.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ---------- Mobile menu ----------
+    const nav = document.querySelector(".nav");
+    const menuToggle = document.querySelector(".menu-toggle");
+
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("open");
+    });
+
+    // Close the mobile menu after clicking a link
+    document.querySelectorAll(".nav nav a").forEach((link) => {
+      link.addEventListener("click", () => nav.classList.remove("open"));
+    });
+
+    // ---------- Project filters ----------
+    const filterButtons = document.querySelectorAll(".filter");
+    const projects = document.querySelectorAll(".project");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const category = button.dataset.filter;
+
+        filterButtons.forEach((btn) => {
+          const isActive = btn === button;
+          btn.classList.toggle("active", isActive);
+          btn.setAttribute("aria-pressed", String(isActive));
+        });
+
+        projects.forEach((project) => {
+          const show = category === "all" || project.dataset.category === category;
+          project.classList.toggle("hidden", !show);
+        });
+      });
+    });
+
+    // ---------- Scroll reveal & skill bars ----------
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible", "in");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll(".reveal, .skills-grid").forEach((el) => {
+      observer.observe(el);
+    });
+
+    // ---------- Footer year ----------
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
